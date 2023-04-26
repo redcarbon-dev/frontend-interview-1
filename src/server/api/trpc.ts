@@ -33,6 +33,7 @@ type CreateContextOptions = Record<string, never>;
 const createInnerTRPCContext = (_opts: CreateContextOptions) => {
   return {
     prisma,
+    user: `ashoka.tano@redcarbon.ai`,
   };
 };
 

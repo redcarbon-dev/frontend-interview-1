@@ -86,9 +86,10 @@ export const incindetsRouter = createTRPCRouter({
         where: {
           id: input.incindetId,
           status: "open",
+          assignee: null,
         },
         data: {
-          assignee: "ahsoka.tano@test.com",
+          assignee: ctx.user,
           status: "under_investigation",
         },
       });
@@ -104,9 +105,10 @@ export const incindetsRouter = createTRPCRouter({
         where: {
           id: input.incindetId,
           status: "under_investigation",
+          assignee: ctx.user,
         },
         data: {
-          assignee: "ahsoka.tano@test.com",
+          assignee: ctx.user,
           status: "closed",
         },
       });
