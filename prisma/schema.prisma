@@ -1,0 +1,24 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider        = "prisma-client-js"
+    previewFeatures = ["extendedWhereUnique"]
+}
+
+datasource db {
+    provider = "sqlite"
+    url      = env("DATABASE_URL")
+}
+
+model Incident {
+    id         String   @id @default(cuid())
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @updatedAt
+    title      String
+    status     String // OPEN CLOSED INVESTIGATING
+    assignee   String?
+    tags       String
+    checksData String
+    severity   Int
+}
