@@ -6,12 +6,12 @@ import { api } from "~/utils/api";
 const Home: NextPage = () => {
   const q = api.incidents.listIncindets.useQuery({
     skip: 0,
-    take: 10,
+    take: 200,
     order: {
       severity: "desc",
     },
     filter: {
-      assegnees: ["yoda@redcarbon.ai"],
+      // assegnees: ["yoda@redcarbon.ai"],
     },
   });
 
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <pre className="m-2 p-2 ring-1">{JSON.stringify(q, null, 2)}</pre>
+        <pre className="m-2 p-2 ring-1">{JSON.stringify(q.data, null, 2)}</pre>
       </main>
     </>
   );
